@@ -185,7 +185,7 @@ private class LineItemTriggerTest {
 		
 		// Reload myOrder and assert results on insert (for both price and 1st + 2nd category)
 		Decimal expectedAmount = 9*TEST_PRICE_ORANGES + (6+5)*TEST_PRICE_PEARS + 10*TEST_PRICE_APPLES;
-    	myOrder = [SELECT Purchased__c,Product_Category_1__c,Product_Category_Units_1__c,Product_Category_2__c,Product_Category_Units_2__c FROM Order__c WHERE Id = :myOrder.Id][0];
+    	myOrder = [SELECT Purchased__c,Product_Category_1__c,Product_Category_Units_1__c,Product_Category_2__c,Product_Category_Units_2__c FROM Order__c][0];
     	System.assertEquals(expectedAmount, myOrder.Purchased__c, 'Purchased price is incorrect on insert');
     	System.assertEquals('pears', myOrder.Product_Category_1__c,  'First product category is incorrect on insert');
     	System.assertEquals(11, myOrder.Product_Category_Units_1__c, 'First product category units are incorrect on insert');
